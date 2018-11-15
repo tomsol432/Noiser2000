@@ -1,0 +1,553 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpNoise.Utilities</name>
+    </assembly>
+    <members>
+        <member name="T:SharpNoise.Utilities.Imaging.Color">
+             <summary>
+             Defines a color
+             </summary>
+             <remarks>
+             A color object contains four 8-bit channels: red, green, blue, and an
+             alpha (transparency) channel.  Channel values range from 0 to 255.
+            
+             The alpha channel defines the transparency of the color.  If the alpha
+             channel has a value of 0, the color is completely transparent.  If the
+             alpha channel has a value of 255, the color is completely opaque.
+             </remarks>
+        </member>
+        <member name="F:SharpNoise.Utilities.Imaging.Color.Red">
+            <summary>
+            Gets the red color channel
+            </summary>
+        </member>
+        <member name="F:SharpNoise.Utilities.Imaging.Color.Green">
+            <summary>
+            Gets the green color channel
+            </summary>
+        </member>
+        <member name="F:SharpNoise.Utilities.Imaging.Color.Blue">
+            <summary>
+            Gets the blue color channel
+            </summary>
+        </member>
+        <member name="F:SharpNoise.Utilities.Imaging.Color.Alpha">
+            <summary>
+            Gets the alpha channel
+            </summary>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.Color.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="red">The red color channel</param>
+            <param name="green">The green color channel</param>
+            <param name="blue">The blue color channel</param>
+            <param name="alpha">The alpha channel</param>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.Color.#ctor(SharpNoise.Utilities.Imaging.Color)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="other">The color to be cloned</param>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.Color.ToGdiColor">
+            <summary>
+            Converts this Color to a System.Drawing.Color
+            </summary>
+            <returns>Returns the created color</returns>
+        </member>
+        <member name="T:SharpNoise.Utilities.Imaging.GradientColor">
+             <summary>
+             Defines a color gradient.
+             </summary>
+             <remarks>
+             A color gradient is a list of gradually-changing colors.  A color
+             gradient is defined by a list of gradient points.  Each
+             gradient point has a position and a color.  In a color gradient, the
+             colors between two adjacent gradient points are linearly interpolated.
+            
+             To add a gradient point to the color gradient, pass its position and
+             color to the <see cref="M:SharpNoise.Utilities.Imaging.GradientColor.AddGradientPoint(System.Double,SharpNoise.Utilities.Imaging.Color)"/> method.
+            
+             To retrieve a color from a specific position in the color gradient,
+             pass that position to the GetColor() method.
+            
+             This class is a useful tool for coloring height maps based on
+             elevation.
+            
+             Gradient example
+            
+             Suppose a gradient object contains the following gradient points:
+             - -1.0 maps to black.
+             - 0.0 maps to white.
+             - 1.0 maps to red.
+            
+             If an application passes -0.5 to the <see cref="M:SharpNoise.Utilities.Imaging.GradientColor.GetColor(System.Double)"/> method, this method
+             will return a gray color that is halfway between black and white.
+            
+             If an application passes 0.25 to the <see cref="M:SharpNoise.Utilities.Imaging.GradientColor.GetColor(System.Double)"/> method, this method
+             will return a very light pink color that is one quarter of the way
+             between white and red.
+             </remarks>
+        </member>
+        <member name="T:SharpNoise.Utilities.Imaging.GradientColor.GradientPoint">
+             <summary>
+             Defines a point used to build a color gradient.
+             </summary>
+             <remarks>
+             A color gradient is a list of gradually-changing colors.  A color
+             gradient is defined by a list of gradient points.  Each
+             gradient point has a position and a color.  In a color gradient, the
+             colors between two adjacent gradient points are linearly interpolated.
+            
+             The ColorGradient class defines a color gradient by a list of these
+             objects.
+             </remarks>
+        </member>
+        <member name="F:SharpNoise.Utilities.Imaging.GradientColor.GradientPoint.Position">
+            <summary>
+            The position of this gradient point.
+            </summary>
+        </member>
+        <member name="F:SharpNoise.Utilities.Imaging.GradientColor.GradientPoint.Color">
+            <summary>
+            The color of this gradient point.
+            </summary>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.GradientColor.GradientPoint.#ctor(System.Double,SharpNoise.Utilities.Imaging.Color)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="position">Position of the GradientPoint</param>
+            <param name="color">Color of the GradientPoint</param>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.GradientColor.PointCount">
+            <summary>
+            Gets the amount of gradient points in the gradient
+            </summary>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.GradientColor.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.GradientColor.#ctor(System.Collections.Generic.IEnumerable{SharpNoise.Utilities.Imaging.GradientColor.GradientPoint})">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="gradientPoints">A predefined list of gradient points</param>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.GradientColor.AddGradientPoint(System.Double,SharpNoise.Utilities.Imaging.Color)">
+            <summary>
+            Adds a gradient point to this gradient object.
+            </summary>
+            <param name="gradientPos">The position of this gradient point.</param>
+            <param name="color">The color of this gradient point.</param>
+            <remarks>
+            No two gradient points have the same position.
+            It does not matter which order these gradient points are added.
+            </remarks>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.GradientColor.ClearGradientPoints">
+            <summary>
+            Deletes all the gradient points from this gradient object.
+            </summary>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.GradientColor.GetColor(System.Double)">
+            <summary>
+            Returns the color at the specified position in the color gradient.
+            </summary>
+            <param name="gradientPosition">The specified position.</param>
+            <returns>The color at that position.</returns>
+        </member>
+        <member name="T:SharpNoise.Utilities.Imaging.Image">
+             <summary>
+             Implements an image, a 2-dimensional array of color values.
+             </summary>
+             <remarks>
+             An image can be used to store a color texture.
+            
+             These color values are of type <see cref="T:SharpNoise.Utilities.Imaging.Color"/>.
+             
+             The size (width and height) of the image can be specified during
+             object construction or at any other time.
+            
+             The <see cref="!:GetValue"/> method returns the border value if the specified
+             position lies outside of the image.
+             </remarks>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.Image.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.Image.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.Image.#ctor(SharpNoise.Utilities.Imaging.Image)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.Image.ToGdiBitmap">
+            <summary>
+            Converts the Image to a System.Drawing.Bitmap
+            </summary>
+            <returns>Returns the created Bitmap</returns>
+            <remarks>
+            This isn't exactly optimised for speed. Will be slow for large Images.
+            </remarks>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.Image.SaveGdiBitmap(System.IO.Stream,System.Drawing.Imaging.ImageFormat,System.Boolean)">
+            <summary>
+            Convert the image to a System.Drawing.Bitmap and save it to a stream
+            </summary>
+            <param name="destStream">The stream to save the image to</param>
+            <param name="imageFormat">The image format to use</param>
+            <param name="leaveOpen">
+            If true, <paramref name="destStream"/> will be left open after saving the image;
+            otherwise, the stream will be closed.
+            </param>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.Image.SaveGdiBitmap(System.String,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Convert the image to a System.Drawing.Bitmap and save it to a file
+            </summary>
+            <param name="filename">The file to save the image to</param>
+            <param name="imageFormat">The ImageFormat to use</param>
+        </member>
+        <member name="T:SharpNoise.Utilities.Imaging.ImageRenderer">
+             <summary>
+             Renders an image from a noise map.
+             </summary>
+             <remarks>
+             This class renders an image given the contents of a noise-map object.
+            
+             An application can configure the output of the image in three ways:
+             - Specify the color gradient.
+             - Specify the light source parameters.
+             - Specify the background image.
+            
+             This class uses a color gradient to calculate the color for each pixel
+             in the destination image according to the value from the corresponding
+             position in the noise map.
+            
+             A color gradient is a list of gradually-changing colors.  A color
+             gradient is defined by a list of gradient points.  Each
+             gradient point has a position and a color.  In a color gradient, the
+             colors between two adjacent gradient points are linearly interpolated.
+            
+             For example, suppose this class contains the following color gradient:
+            
+             - -1.0 maps to dark blue.
+             - -0.2 maps to light blue.
+             - -0.1 maps to tan.
+             - 0.0 maps to green.
+             - 1.0 maps to white.
+            
+             The value 0.5 maps to a greenish-white color because 0.5 is halfway
+             between 0.0 (mapped to green) and 1.0 (mapped to white).
+            
+             The value -0.6 maps to a medium blue color because -0.6 is halfway
+             between -1.0 (mapped to dark blue) and -0.2 (mapped to light blue).
+            
+             The color gradient requires a minimum of two gradient points.
+            
+             This class contains two pre-made gradients: a grayscale gradient and a
+             color gradient suitable for terrain.  To use these pre-made gradients,
+             call the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.BuildGrayscaleGradient" /> or <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.BuildTerrainGradient" /> methods,
+             respectively.
+            
+             The color value passed to <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.AddGradientPoint(System.Double,SharpNoise.Utilities.Imaging.Color)" /> has an alpha
+             channel.  This alpha channel specifies how a pixel in the background
+             image (if specified) is blended with the calculated color.  If the
+             alpha value is high, this class weighs the blend towards the
+             calculated color, and if the alpha value is low, this class weighs the
+             blend towards the color from the corresponding pixel in the background
+             image.
+            
+             This class contains a parallel light source that lights the image.  It
+             interprets the noise map as a bump map.
+            
+             To enable or disable lighting, pass a Boolean value to the
+             <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.EnableLight" /> property.
+            
+             To set the position of the light source in the "sky", call the
+             <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.LightAzimuth" /> and <see cref="!:LightElev" /> properties.
+            
+             To set the color of the light source, call the <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.LightColor" /> property.
+            
+             To set the intensity of the light source, call the <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.LightIntensity" />
+             property.  A good intensity value is 2.0, although that value tends to
+             "wash out" very light colors from the image.
+             
+             To set the contrast amount between areas in light and areas in shadow,
+             call the <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.LightContrast" /> property.  Determining the correct contrast
+             amount requires some trial and error, but if your application
+             interprets the noise map as a height map that has its elevation values
+             measured in meters and has a horizontal resolution of h meters, a
+             good contrast amount to use is ( 1.0 / h ).
+             
+             To specify a background image, pass an Image object to the
+             <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.BackgroundImage" /> property.
+            
+             This class determines the color of a pixel in the destination image by
+             blending the calculated color with the color of the corresponding
+             pixel from the background image.
+            
+             The blend amount is determined by the alpha of the calculated color.
+             If the alpha value is high, this class weighs the blend towards the
+             calculated color, and if the alpha value is low, this class weighs the
+             blend towards the color from the corresponding pixel in the background
+             image.
+            
+             To render the image, perform the following steps:
+             - Pass a NoiseMap object to the <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.SourceNoiseMap" /> property.
+             - Pass an Image object to the <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.DestinationImage" /> property.
+             - Pass an Image object to the <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.BackgroundImage" /> property (optional)
+             - Call the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render" /> method.
+             </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.EnableLight">
+            <summary>
+            Enables or disables the light source.
+            </summary>
+            <remarks>
+            If the light source is enabled, this object will interpret the
+            noise map as a bump map.
+            </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.EnableWrap">
+             <summary>
+             Enables or disables noise-map wrapping.
+             </summary>
+             <remarks>
+             This object requires five points (the initial point and its four
+             neighbors) to calculate light shading.  If wrapping is enabled,
+             and the initial point is on the edge of the noise map, the
+             appropriate neighbors that lie outside of the noise map will
+             "wrap" to the opposite side(s) of the noise map.  Otherwise, the
+             appropriate neighbors are cropped to the edge of the noise map.
+            
+             Enabling wrapping is useful when creating spherical renderings and
+             tileable textures.
+             </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.LightAzimuth">
+             <summary>
+             Gets or sets the azimuth of the light source, in degrees.
+             </summary>
+             <remarks>
+             The azimuth is the location of the light source around the
+             horizon:
+             - 0.0 degrees is east.
+             - 90.0 degrees is north.
+             - 180.0 degrees is west.
+             - 270.0 degrees is south.
+            
+             Make sure the light source is enabled via a call to the
+             <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.EnableLight"/> property before calling the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render"/> method.
+             </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.LightBrightness">
+            <summary>
+            Gets or sets the brightness of the light source.
+            </summary>
+            <remarks>
+            Make sure the light source is enabled via a call to the
+            <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.EnableLight"/> property before calling the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render"/> method.
+            </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.LightColor">
+            <summary>
+            Gets or sets the color of the light source.
+            </summary>
+            <remarks>
+            Make sure the light source is enabled via a call to the
+            <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.EnableLight"/> property before calling the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render"/> method.
+            </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.LightElevation">
+            <summary>
+            Gets or sets the elevation of the light source, in degrees.
+            </summary>
+            <remarks>
+            The elevation is the angle above the horizon:
+            - 0 degrees is on the horizon.
+            - 90 degrees is straight up.
+            
+            Make sure the light source is enabled via a call to the
+            <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.EnableLight"/> property before calling the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render"/> method.
+            </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.LightIntensity">
+            <summary>
+            Gets or sets the intensity of the light source.
+            </summary>
+            <remarks>
+            A good value for intensity is 2.0.
+            
+            Make sure the light source is enabled via a call to the
+            <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.EnableLight"/> property before calling the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render"/> method.
+            </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.LightContrast">
+             <summary>
+             Gets or sets the contrast of the light source.
+             </summary>
+             <remarks>
+             The contrast specifies how sharp the boundary is between the
+             light-facing areas and the shadowed areas.
+            
+             The contrast determines the difference between areas in light and
+             areas in shadow.  Determining the correct contrast amount requires
+             some trial and error, but if your application interprets the noise
+             map as a height map that has a spatial resolution of h meters
+             and an elevation resolution of 1 meter, a good contrast amount to
+             use is ( 1.0 / h ).
+             
+             Make sure the light source is enabled via a call to the
+             <see cref="P:SharpNoise.Utilities.Imaging.ImageRenderer.EnableLight"/> property before calling the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render"/> method.
+             </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.BackgroundImage">
+             <summary>
+             Gets ot sets the background image.
+             </summary>
+             <remarks>
+             If a background image has been specified, the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render"/> method
+             blends the pixels from the background image onto the corresponding
+             pixels in the destination image.  The blending weights are
+             determined by the alpha channel in the pixels in the destination
+             image.
+            
+             The destination image must exist throughout the lifetime of this
+             object unless another image replaces that image.
+             </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.DestinationImage">
+             <summary>
+             Gets or sets the destination image.
+             </summary>
+             <remarks>
+             The destination image will contain the rendered image after a
+             successful call to the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render"/> method.
+            
+             The destination image must exist throughout the lifetime of this
+             object unless another image replaces that image.
+             </remarks>
+        </member>
+        <member name="P:SharpNoise.Utilities.Imaging.ImageRenderer.SourceNoiseMap">
+            <summary>
+            Gets or sets the source noise map.
+            </summary>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.ImageRenderer.AddGradientPoint(System.Double,SharpNoise.Utilities.Imaging.Color)">
+             <summary>
+             Adds a gradient point to this gradient object.
+             </summary>
+             <param name="gradientPos">The position of this gradient point.</param>
+             <param name="gradientColor">The color of this gradient point.</param>
+             <remarks>
+             No two gradient points can have the same position.
+             
+             This object uses a color gradient to calculate the color for each
+             pixel in the destination image according to the value from the
+             corresponding position in the noise map.
+            
+             The gradient requires a minimum of two gradient points.
+            
+             The specified color value passed to this method has an alpha
+             channel.  This alpha channel specifies how a pixel in the
+             background image (if specified) is blended with the calculated
+             color.  If the alpha value is high, this object weighs the blend
+             towards the calculated color, and if the alpha value is low, this
+             object weighs the blend towards the color from the corresponding
+             pixel in the background image.
+             </remarks>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.ImageRenderer.BuildGrayscaleGradient">
+            <summary>
+            Builds a grayscale gradient.
+            </summary>
+            <remarks>
+            The original gradient is cleared and a grayscale gradient is
+            created.
+            
+            This color gradient contains the following gradient points:
+            - -1.0 maps to black
+            - 1.0 maps to white
+            </remarks>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.ImageRenderer.BuildTerrainGradient">
+            <summary>
+            Builds a color gradient suitable for terrain.
+            </summary>
+            <remarks>
+            The original gradient is cleared and a terrain gradient is
+            created.
+            
+            This gradient color at position 0.0 is the "sea level".  Above
+            that value, the gradient contains greens, browns, and whites.
+            Below that value, the gradient contains various shades of blue.
+            </remarks>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.ImageRenderer.ClearGradient">
+            <summary>
+            Clears the color gradient.
+            </summary>
+            <remarks>
+            Before calling the <see cref="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render"/> method, the application must specify a
+            new color gradient with at least two gradient points.
+            </remarks>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.ImageRenderer.Render">
+            <summary>
+            Renders the destination image using the contents of the source
+            noise map and an optional background image.
+            </summary>
+            <remarks>
+            The background image and the destination image can safely refer to
+            the same image, although in this case, the destination image is
+            irretrievably blended into the background image.
+            </remarks>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.ImageRenderer.CalcDestinationColor(SharpNoise.Utilities.Imaging.Color,SharpNoise.Utilities.Imaging.Color,System.Double)">
+            <summary>
+            Calculates the destination color.
+            </summary>
+            <param name="sourceColor">The source color generated from the color
+            gradient.</param>
+            <param name="backgroundColor">The color from the background image at the
+            corresponding position.</param>
+            <param name="lightValue">The intensity of the light at that position.</param>
+            <returns>The destination color.</returns>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.ImageRenderer.CalcLightIntensity(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculates the intensity of the light given some elevation values.
+            </summary>
+            <param name="center">Elevation of the center point.</param>
+            <param name="left">Elevation of the point directly left of the center
+            point.</param>
+            <param name="right">Elevation of the point directly right of the center
+            point.</param>
+            <param name="down">Elevation of the point directly below the center
+            point.</param>
+            <param name="up">Elevation of the point directly above the center point.</param>
+            <returns>The calculated light intensity.</returns>
+            <remarks>
+            These values come directly from the noise map.
+            </remarks>
+        </member>
+        <member name="M:SharpNoise.Utilities.Imaging.ImageRenderer.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+    </members>
+</doc>

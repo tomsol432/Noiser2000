@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Noiser2000.exe" version="2.7.3.3" publicKeyToken="25f5e3b54a1ade5c" language="neutral" processorArchitecture="amd64" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Noiser2000" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
+    <commandLine file="Noiser2000.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Noiser2000.exe" size="21472">
+      <assemblyIdentity name="Noiser2000" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>LhAk+twgAQKeshPNiCRPFzWp0elj/LU+XiFD0XUwfAY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpNoise.dll" size="60928">
+      <assemblyIdentity name="SharpNoise" version="0.11.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>VdHPMQKCvgaSALQDIMmy9LRNijqn+mqWz8iosogIoVY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SharpNoise.Utilities.dll" size="13824">
+      <assemblyIdentity name="SharpNoise.Utilities" version="0.11.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>BKZqR6WQ4fyCh8BKT+5/eebSSk9Av95WwFJs3BtvJbk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Noiser2000.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-RMT56RB\tomso" issuerKeyHash="62505275f1b6e7333b39b5604a22034211ca2653" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>bXrmTfrUjZt9/LganUu0O4l3df7lqAmBN9dusJ86KzY=</DigestValue></Reference></SignedInfo><SignatureValue>mKCULBMB6kVKRf9GUlRxjBOnewLtw2sBTHBw17WprrvXUAh/iTeiA+OU1Anzq4eFhFgFnyBIPnVcd2JrVQsNLY2obBrHlX6Vk41taFoKkueGVgBUo+QBXYSXkS+CRe5beDYgbfjG0cnCB/ZdNPy5G9HyZ0H+uAqPj0rqSv1pxBc=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>zr4X304S0dyyKO/CaYigQXB0qUV8erShqjyGN7WYsRcEeUiJeMNFb/OeVz43IoMqqXvlD7NDNhY2iZ1pk4n+bL1jVcUjoKbBJvYSmVWsR485MF5XD34JYTQbuZ7NO8Eq85LL4eRkP5EqVMSzGNz6jaVwJxAqM0UO2LaadAKoeQk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="362b3a9fb06ed7378109a8e5fe7577893bb44b9d1ab8fc7d9b8dd4fa4de67a6d" Description="" Url=""><as:assemblyIdentity name="Noiser2000.exe" version="2.7.3.3" publicKeyToken="25f5e3b54a1ade5c" language="neutral" processorArchitecture="amd64" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-RMT56RB\tomso</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Z0tvERrhrffGMS8xSAP0D6uNKQfNJVM0wAu9h+NCN9c=</DigestValue></Reference></SignedInfo><SignatureValue>yg469hIl1A7IWBYdn3Brkz9A6H+C7iy50tXuRTbqACdwigdxkfqi6RI4qQFx0iIb2GrLJNru6yVQGCvCtUrMMqV3CWg7GL5JH9DzhJ/IbaDFK0s8AUmI+PXC4PtnrRITpKVTFnOmcLBrH8Qu91tmZ6WRQ7/JEZKTWZ+7BqccDuE=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>zr4X304S0dyyKO/CaYigQXB0qUV8erShqjyGN7WYsRcEeUiJeMNFb/OeVz43IoMqqXvlD7NDNhY2iZ1pk4n+bL1jVcUjoKbBJvYSmVWsR485MF5XD34JYTQbuZ7NO8Eq85LL4eRkP5EqVMSzGNz6jaVwJxAqM0UO2LaadAKoeQk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQKPV7ihPB4ZpPCxAp/V74ljANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAFIATQBUADUANgBSAEIAXAB0AG8AbQBzAG8wHhcNMTgwNjEzMDkxNzM1WhcNMTkwNjEzMTUxNzM1WjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAFIATQBUADUANgBSAEIAXAB0AG8AbQBzAG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAM6+F99OEtHcsijvwmmIoEFwdKlFfHq0oao8hje1mLEXBHlIiXjDRW/znlc+NyKDKql75Q+zQzYWNomdaZOJ/my9Y1XFI6CmwSb2EplVrEePOTBeVw9+CWE0G7mezTvBKvOSy+HkZD+RKlTEsxjc+o2lcCcQKjNFDti2mnQCqHkJAgMBAAEwDQYJKoZIhvcNAQELBQADgYEACX2rzvODefXOB6mnH+4TwhXLGlJZ/IXDy8AwgciNBl+Us3bKDAkl4DMBN0Fyab1lGSSCn5r5hc6n+1RPAI+KSI9+tbjRibYmh1voDli90iBljIfEAQ3q+LDZp8A0aD6tZoUg2GvQQQZjn7m8+HivMoAG/vFdAzj8EFXbQHpbPyc=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
