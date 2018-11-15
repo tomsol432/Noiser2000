@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Noiser2000"
         mc:Ignorable="d"
-        Title="Noiser 2000" Height="650" Width="900" MinHeight="650" MinWidth="900">
+        Title="Noiser 2000" Height="820" Width="900" MinHeight="650" MinWidth="900">
     <Window.Resources>
         <SolidColorBrush x:Key="PureWhite" Color="White"/>
     </Window.Resources>
-    <Grid Background="#FF3C3C3C" Margin="0,0,0,-179">
+    <Grid Background="#FF3C3C3C" Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="37*"/>
             <ColumnDefinition Width="62*"/>
